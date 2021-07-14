@@ -11,8 +11,9 @@ const SingleCard = (props) => {
     <Card style={{ border: "none" }}>
       <Link to={"/ShowDetail/" + props.id}>
         <Card.Img
+          show={show}
           variant="top"
-          src={this.props.imgPoster}
+          src={props.imgPoster}
           style={{ height: "142px", width: "270px" }}
           className="img-fluid cover-img"
           onClick={handleShow}
