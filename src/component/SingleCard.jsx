@@ -1,15 +1,25 @@
-import { Component } from "react";
-import { Card } from "react-bootstrap";
+// import { Component } from "react";
+import { Card } from "react-bootstrap"
+import { Link } from "react-router-dom"
+import { useState } from "react"
 
-class SingleCard extends Component {
-  render() {
-    return (
+const SingleCard = (props) => {
+  const [show, setShow] = useState(false)
 
-          <Card style={{border: "none"}}>
-            <Card.Img variant="top" src={this.props.imgPoster} style={{height: "142px", width: "270px"}} className="img-fluid cover-img"/>
-          </Card>
-    );
-  }
+  const handleShow = () => setShow(true)
+  return (
+    <Card style={{ border: "none" }}>
+      <Link to={"/ShowDetail/" + props.id}>
+        <Card.Img
+          variant="top"
+          src={this.props.imgPoster}
+          style={{ height: "142px", width: "270px" }}
+          className="img-fluid cover-img"
+          onClick={handleShow}
+        />
+      </Link>
+    </Card>
+  )
 }
 
-export default SingleCard;
+export default SingleCard
